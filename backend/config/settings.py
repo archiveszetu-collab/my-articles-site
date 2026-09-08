@@ -45,9 +45,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'cloudinary_storage',      # ADD — must come before staticfiles is fine, but before your apps
-    'django.contrib.staticfiles',
-    'cloudinary',              # ADD
+    'cloudinary_storage',
+    'cloudinary',
     'rest_framework',
     'corsheaders',
     'articles',
