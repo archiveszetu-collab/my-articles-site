@@ -11,6 +11,7 @@ class Article(models.Model):
     source_url = models.URLField(blank=True, null=True)
     cover_image = models.URLField(max_length=1000, blank=True, null=True)
     notified = models.BooleanField(default=False)
+    display_order = models.IntegerField(default=0)
 
     def __str__(self):
         return self.title
@@ -42,3 +43,13 @@ class Subscriber(models.Model):
 
     def __str__(self):
         return self.email
+
+class Photo(models.Model):
+    title = models.CharField(max_length=200, blank=True)
+    caption = models.TextField(blank=True)
+    image = models.CharField(max_length=1000)
+    uploaded_at = models.DateTimeField(auto_now_add=True)
+    display_order = models.IntegerField(default=0)
+
+    def __str__(self):
+        return self.title or f"Photo {self.id}"

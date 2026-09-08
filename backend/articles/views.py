@@ -1,12 +1,12 @@
 from rest_framework import viewsets, mixins
 from rest_framework.response import Response
 from django.core.mail import send_mail
-from .models import Article, Subscriber
-from .serializers import ArticleSerializer, SubscriberSerializer
+from .models import Article, Subscriber, Photo
+from .serializers import ArticleSerializer, PhotoSerializer, SubscriberSerializer
 from .permissions import HasUploadKey
 
 class ArticleViewSet(viewsets.ModelViewSet):
-    queryset = Article.objects.all().order_by('-created_at')
+    queryset = Article.objects.all().order_by('display_order', '-created_at')
     serializer_class = ArticleSerializer
     permission_classes = [HasUploadKey]
 
@@ -31,3 +31,7 @@ class SubscriberViewSet(mixins.CreateModelMixin, viewsets.GenericViewSet):
             recipient_list=[subscriber.email],
             fail_silently=False,
         )
+
+class PhotoViewSet(viewsets.ModelViewSet):
+    queryset = Photo.objects.all().order_by('display_order', '-uploaded_at')
+    serializer_class = PhotoSerializer
