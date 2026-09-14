@@ -31,7 +31,7 @@ MEDIA_URL = '/media/'
 SECRET_KEY = config('SECRET_KEY', default='dev-secret-key-not-for-production') 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config('DEBUG', default=True, cast=bool)
+DEBUG = True
 
 ALLOWED_HOSTS = ['archives-zetu-backend.onrender.com', 'localhost', '127.0.0.1']
 
