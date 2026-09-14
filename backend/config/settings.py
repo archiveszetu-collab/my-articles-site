@@ -33,7 +33,7 @@ SECRET_KEY = config('SECRET_KEY', default='dev-secret-key-not-for-production')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['archives-zetu-backend.onrender.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['archives-zetu-backend.onrender.com', 'localhost', '127.0.0.1',]
 
 ARTICLE_UPLOAD_KEY = config('ARTICLE_UPLOAD_KEY', default='')
 # Application definition
@@ -148,7 +148,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
     "http://localhost:3001",
-    "https://archives-zetu.vercel.app",
+    "https://archives-zetu.netlify.app",
 ]
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
@@ -160,4 +160,5 @@ DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
 CSRF_TRUSTED_ORIGINS = [
     "https://archives-zetu-backend.onrender.com",
+    "https://archives-zetu.netlify.app",
 ]
